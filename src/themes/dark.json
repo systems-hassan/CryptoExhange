@@ -1,0 +1,10 @@
+{
+  "token": {
+    "colorPrimary": "#0e1937",
+    "colorTextBase": "#ffffff",
+    "colorBgBase": "#091024",
+    "colorInfo": "#c61d8c",
+    "colorPrimaryBg": "#C61D8C",
+    "colorPrimaryActive": "#040712"
+  }
+}
