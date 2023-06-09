@@ -1,4 +1,10 @@
-import { InfoCircleOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
+import {
+  InfoCircleOutlined,
+  MenuFoldOutlined,
+  MenuOutlined,
+  MenuUnfoldOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { Button, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
@@ -13,9 +19,20 @@ const Navbar = (props) => {
 
   return (
     <Layout>
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+      <Header style={{ width: '100%', padding: '10px' }}>
         <div className="logo" style={{ float: 'left', color: '#fff', marginRight: '2rem' }}>
-          CRYPTOExchange
+          {!(['login', 'signup'].includes(props.pathname)) && (
+            <>
+              {React.createElement(
+                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                  className: 'trigger',
+                  onClick: props.onCollapseClick,
+                }
+              )}
+            </>
+          )}
+          {'   '}CRYPTOExchange
         </div>
         <Menu
           theme="dark"
@@ -26,7 +43,7 @@ const Navbar = (props) => {
           triggerSubMenuAction="click"
           inlineCollapsed={collapsed}>
           <Menu.Item key="/about" icon={<InfoCircleOutlined />} onClick={toggleCollapse}
-            style={{ borderBottom: props.pathname == "/about" ? "1px solid white": undefined }}>
+            style={{ borderBottom: props.pathname == "/about" ? "1px solid white" : undefined }}>
             About
           </Menu.Item>
           <Menu.SubMenu
@@ -38,10 +55,10 @@ const Navbar = (props) => {
               </span>
             }
             style={{ float: 'right' }}>
-            <Menu.Item key="/login" style={{ borderBottom: props.pathname == "/login" ? "1px solid white": undefined }}> 
+            <Menu.Item key="/login" style={{ borderBottom: props.pathname == "/login" ? "1px solid white" : undefined }}>
               <a href="/login">Login</a>
             </Menu.Item>
-            <Menu.Item key="/signup" style={{ borderBottom: props.pathname == "/signup" ? "1px solid white": undefined }}>
+            <Menu.Item key="/signup" style={{ borderBottom: props.pathname == "/signup" ? "1px solid white" : undefined }}>
               <a href="/signup">Signup</a>
             </Menu.Item>
           </Menu.SubMenu>

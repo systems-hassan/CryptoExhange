@@ -9,7 +9,9 @@ const LoginPage = () => {
     const users = User.getAllUsers();
     for (let { email, password } of users) {
       if (email == values.email && password == values.password) {
-        alert('Successfully logged in...'); return;
+        alert('Successfully logged in...'); 
+        window.location = '/dashboard';
+        return;
       }
     }
 

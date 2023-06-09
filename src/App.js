@@ -5,6 +5,7 @@ import "./App.css";
 import LoginPage from "./pages/login/page";
 import Darktheme from './themes/dark.json';
 import SignupForm from "./pages/signup/page";
+import DashboardPage from "./pages/dashboard/page";
 
 const App = () => {
   const [page, setPage] = useState();
@@ -22,6 +23,8 @@ const App = () => {
             return <LoginPage />
           case "/signup":
             return <SignupForm />
+          case "/dashboard":
+            return <DashboardPage />
           default:
             return <LoginPage />
         }
